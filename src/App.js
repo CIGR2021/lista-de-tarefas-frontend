@@ -8,8 +8,8 @@ function App() {
     <div className="App">
       <header className="App-header">
         <Task />
-        <Email />
-        <Call />
+        {/* <Email />
+        <Call /> */}
       </header>
     </div>
   );
