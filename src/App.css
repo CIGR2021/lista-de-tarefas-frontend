@@ -4,6 +4,7 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  color: 'text.primary';
 }
 
 .task {
@@ -15,7 +16,7 @@
 }
 
 .task-field {
-  width: 100%;
+  width: auto;
   font-size: 20px;
   border-bottom: solid 5px orange;
 }
@@ -30,13 +31,5 @@
 
 .actions {
   display: flex;
-  align-items: center;
-  justify-content: center;
   border: none;
-  font-size: 14px;
-  padding: 2%;
-}
-
-button {
-  font-size: 10px;
 }
