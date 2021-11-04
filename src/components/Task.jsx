@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 // Biblioteca Material UI
-import { InputAdornment, Stack, TextField } from '@material-ui/core';
-import IconButton from '@material-ui/core/Button';
+import { Box, TextField } from '@mui/material';
 import { AddTask } from '@mui/icons-material';
+import IconButton from '@material-ui/core/Button';
 // Component
 import TaskList from './TaskList.jsx';
 // Context
@@ -14,28 +14,22 @@ function Task() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h1>Tarefas</h1>
       <section className='task'>
-        <Stack direction='row' spacing={1}>
+        <Box direction='row' spacing={1}>
+          <AddTask sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
           <TextField
+            id='input-with-sx'
+            label='Clique e digite sua tarefa'
             value={field || ''}
+            variant='standard'
             className='task-field'
+            maxLength='130'
             onChange={(event) => {
               setField(event.currentTarget.value);
             }}
-            id='input-with-icon-textfield'
-            label='Clique aqui e digite sua tarefa'
-            maxLength='130'
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position='start'>
-                  <AddTask />
-                </InputAdornment>
-              ),
-            }}
-            variant='standard'
           />
           <IconButton
+            title='Adicione uma tarefa'
             variant='contained'
             color='primary'
             className='button-add-task'
@@ -47,7 +41,7 @@ function Task() {
           >
             <AddTask />
           </IconButton>
-        </Stack>
+        </Box>
       </section>
       {tasks ? <TaskList /> : []}
     </form>
