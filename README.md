@@ -8,7 +8,7 @@
 >- Sistema proposto para auxiliar as pessoas a se organizar e ter mais produtividade.
 
 ## Para rodar o projeto você deve
-- Primeiro - Clonar o repositorio - Abra o terminal e se preferir criei uma pasta.
+- Primeiro - Clonar o repositorio - Abra o terminal.
 Depois digite o comando abaixo.
   > git clone https://github.com/CIGR2021/lista-de-tarefas-frontend.git.
 - Segundo - Instalar as dependências do projeto executando os comando abaixo.
