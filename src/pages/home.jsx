@@ -15,7 +15,6 @@ function Home() {
           color: 'text.primary',
           opacity: 0.9,
           boxShadow: 2,
-          // height: (theme) => theme.spacing(102),
         }}
       >
         <Box
@@ -32,7 +31,6 @@ function Home() {
           <Box
             sx={{
               gridArea: 'header',
-              // height: (theme) => theme.spacing(5),
               textAlign: 'center',
               gap: 1,
             }}
@@ -46,26 +44,14 @@ function Home() {
               boxShadow: 6,
               gap: 4,
               borderRadius: 5,
-              // height: (theme) => theme.spacing(90),
             }}
           >
             <Task />
           </Box>
-          {/* <Box
-            sx={{
-              gridArea: 'sidebar',
-              boxShadow: 6,
-              gap: 4,
-              borderRadius: 5,
-            }}
-          >
-            Sidebar
-          </Box> */}
           <Box
             sx={{
               gridArea: 'footer',
               mb: 1,
-              // height: (theme) => theme.spacing(5),
             }}
           >
             <h4>Desafio proposto pela Trybe | Desenvolvivo por Carlos</h4>
