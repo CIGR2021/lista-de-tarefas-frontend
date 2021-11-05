@@ -7,9 +7,10 @@ import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import { Container } from '@mui/material';
 // Component
-import Task from './Task';
+import Home from '../pages/home';
 // Meu Estilo
 import '../App.css';
+import styles from '../styles/container'
 
 const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
 
@@ -24,19 +25,23 @@ function MyApp() {
         height: '100vh',
         width: '100vw',
         alignItems: 'center',
-        justifyContent: 'center',
         bgcolor: 'background.default',
         color: 'text.primary',
         borderRadius: 1,
         p: 0,
       }}
     >
-      <Container maxWidth='xl'>
-        {theme.palette.mode} mode
-        <IconButton sx={{ ml: 1 }} onClick={colorMode.toggleColorMode} color="inherit">
-            {theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
+      <Container sx={{
+        justifyContent: 'flex-end',
+        gap: 1,
+      }}>
+        <IconButton sx={{ fontSize: 10 }}onClick={colorMode.toggleColorMode} color="inherit">
+          {theme.palette.mode} mode
+          {theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
         </IconButton>
-        <Task />
+      </Container>
+      <Container sx={styles}>
+        <Home />
       </Container>
     </Box>
   );

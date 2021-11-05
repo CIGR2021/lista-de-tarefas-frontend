@@ -1,7 +1,6 @@
 import React, { useContext, useState } from 'react';
 // Biblioteca Material UI
 import { ListItemButton, Stack, TextField } from '@material-ui/core';
-import Button from '@material-ui/core/Button';
 import IconButton from '@mui/material/IconButton/';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { ListItemIcon, ListItemText } from '@mui/material';
@@ -13,6 +12,8 @@ import ListAltIcon from '@mui/icons-material/ListAlt';
 import UpdateIcon from '@mui/icons-material/Update';
 import SortByAlphaIcon from '@mui/icons-material/SortByAlpha';
 import SortIcon from '@mui/icons-material/Sort';
+// import AccessTimeFilledIcon from '@mui/icons-material/AccessTimeFilled';
+import AccessTimeIcon from '@mui/icons-material/AccessTime';
 // Context
 import TaskContext from '../context/TaskContext.jsx';
 
@@ -31,6 +32,7 @@ function TaskList() {
   } = useContext(TaskContext);
 
   const [edited, setEdited] = useState(false);
+  // const [status, setStatus] = useState('');
 
   return (
     <main>
@@ -41,6 +43,10 @@ function TaskList() {
         >
           <SortByAlphaIcon />
           <ListItemText title='Clique Para Ordenar' primary='Descrição' />
+        </ListItemButton>
+        <ListItemButton component='a' onClick={() => handleOrder('time')}>
+          <AccessTimeIcon />
+          <ListItemText title='Clique Para Ordenar' primary='Data de Criação' />
         </ListItemButton>
         <ListItemButton component='a' onClick={() => handleOrder('completed')}>
           <SortIcon />
@@ -58,6 +64,7 @@ function TaskList() {
               primary={
                 taskEditing === task.id ? (
                   <TextField
+                    id={task.id}
                     autoFocus
                     type='text'
                     label='Digite a nova tarefa'
@@ -67,17 +74,27 @@ function TaskList() {
                     }
                   />
                 ) : (
-                  task.description
+                  <ListItemText
+                    title={`Descrição da Tarefa: ${task.description},
+Data de Criação: ${task.dateOfCreated},
+Id: ${task.id}`}
+                    primary={task.description}
+                  />
                 )
               }
             />
+            <ListItemText
+              title='Data de Criação'
+              primary={task.dateOfCreated}
+            />
+            {/* <ListItemText id={task.id} primary={status} /> */}
             {task.completed ? (
-              <ListItemText label='Status da Tarefa' primary='Completa' />
+              <ListItemText title='Status da Tarefa' primary='Completa' />
             ) : (
-              <ListItemText label='Status da Tarefa' primary='Em Andamento' />
+              <ListItemText title='Status da Tarefa' primary='Em Andamento' />
             )}
             {task.pendente ? null : (
-              <ListItemText label='Status da Tarefa' primary='Pendente' />
+              <ListItemText title='Status da Tarefa' primary='Pendente' />
             )}
             <div className='actions'>
               <Stack direction='row' spacing={1}>
@@ -86,20 +103,41 @@ function TaskList() {
                   aria-label='delete'
                   variant='outlined'
                   color='error'
-                  sx={{ mr: 1 }}
+                  sx={{ ml: 1 }}
                   onClick={() => removeTask(task.id)}
                 >
                   <DeleteIcon />
                 </IconButton>
               </Stack>
-              <Button onClick={() => toggleComplete(task.id)} type='button'>
+              <IconButton
+                id={task.id}
+                title={
+                  task.completed
+                    ? 'Marque como Em andamento'
+                    : 'Marque como Completa'
+                }
+                onClick={() => {
+                  toggleComplete(task.id);
+                  // setStatus(task.completed ? 'Concluída' : 'Em Andamento');
+                }}
+                type='button'
+              >
                 {task.completed ? <CheckCircleOutlineIcon /> : <CircleIcon />}
-              </Button>
-              <Button onClick={() => togglePendente(task.id)} type='button'>
+              </IconButton>
+              <IconButton
+                id={task.id}
+                title={task.pendente ? 'Marque como pendente' : 'Desmarque'}
+                onClick={() => {
+                  togglePendente(task.id);
+                  // setStatus(task.pendente ? 'Pendente' : 'Em Andamento');
+                }}
+                type='button'
+              >
                 {task.pendente ? <CircleIcon /> : <Pending />}
-              </Button>
+              </IconButton>
               {edited === false ? (
-                <Button
+                <IconButton
+                  id={task.id}
                   type='button'
                   onClick={() => {
                     setTaskEditing(task.id);
@@ -107,9 +145,10 @@ function TaskList() {
                   }}
                 >
                   <ListAltIcon />
-                </Button>
+                </IconButton>
               ) : (
-                <Button
+                <IconButton
+                  id={task.id}
                   type='submit'
                   onClick={() => {
                     editTask(task.id);
@@ -117,7 +156,7 @@ function TaskList() {
                   }}
                 >
                   <UpdateIcon />
-                </Button>
+                </IconButton>
               )}
             </div>
           </section>

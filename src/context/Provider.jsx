@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import SnackbarContent from '@mui/material/SnackbarContent';
 // ContextAPI
 import TaskContext from './TaskContext.jsx';
 
@@ -49,15 +48,15 @@ function TaskProvider({ children }) {
     if (field.trim() === '') {
       const message =
         'Não foi possível adicionar a tarefa. Tente não deixar campos em branco!';
-      <SnackbarContent message={message} />;
+      // eslint-disable-next-line no-console
+      console.log(message);
     } else {
       const newTask = {
         id: new Date().getTime(),
         description: task,
-        priority: task.priority,
-        time: `${Dia}/${Mês}/${Ano}`,
-        hora: `${Hora}:${Minutos}:${Segundos}`,
+        dateOfCreated: `${Dia}/${Mês}/${Ano} à ${Hora}:${Minutos}:${Segundos}`,
         completed: false,
+        status: 'Pendente',
       };
 
       const newTasks = [...(tasks || []), newTask];
