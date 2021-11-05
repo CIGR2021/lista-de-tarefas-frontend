@@ -1,5 +1,5 @@
 # PROJETO LISTA DE TAREFAS.
-### Feito com intuído em testar/praticar os conhecimentos simulando um desafio real de vaga de trabalho.
+### Feito com intuíto em testar/praticar os conhecimentos simulando um desafio real de vaga de trabalho.
 #### Por Carlos Henrique Pereira Vieira Estudante de Desenvolvimento Web FullStack na Trybe
 ![image](https://user-images.githubusercontent.com/78491183/140520487-7ae42676-5ae3-43db-b5ba-3ef24ee59ef8.png) ![image](https://user-images.githubusercontent.com/78491183/140520619-7c61696e-7b04-4af9-8530-e80b1cdf0f9f.png)
 
