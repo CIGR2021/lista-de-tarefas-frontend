@@ -1,13 +1,14 @@
-Para rodar o projeto você deve
-
-### `npm install: para instalar as dependências`
-### `npm start: para executar a aplicação`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+# Para rodar o projeto você deve
+- Primeiro - Clonar o repositorio - Abra o terminal e se preferir criei uma pasta.
+Depois digite o comando abaixo.
+  > git clone https://github.com/CIGR2021/lista-de-tarefas-frontend.git.
+- Segundo - Instalar as dependências do projeto executando os comando abaixo.
+  * Entre na pasta criada depois do clone com o seguinte comando.
+    > cd lista-de-tarefas-frontend
+  * Execute o seguinte comando.
+    > npm install.
+- Terceiro - Rodar o projeto executando o comando abaixo
+  > npm start.
 
 # Considerações sobre o desafio
 ### O prazo para a entrega da solução vai do recebimento do desafio até o dia 05/11 12h00.
