@@ -12,7 +12,6 @@ import ListAltIcon from '@mui/icons-material/ListAlt';
 import UpdateIcon from '@mui/icons-material/Update';
 import SortByAlphaIcon from '@mui/icons-material/SortByAlpha';
 import SortIcon from '@mui/icons-material/Sort';
-// import AccessTimeFilledIcon from '@mui/icons-material/AccessTimeFilled';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 // Context
 import TaskContext from '../context/TaskContext.jsx';
@@ -32,7 +31,6 @@ function TaskList() {
   } = useContext(TaskContext);
 
   const [edited, setEdited] = useState(false);
-  // const [status, setStatus] = useState('');
 
   return (
     <main>
@@ -87,7 +85,6 @@ Id: ${task.id}`}
               title='Data de Criação'
               primary={task.dateOfCreated}
             />
-            {/* <ListItemText id={task.id} primary={status} /> */}
             {task.completed ? (
               <ListItemText title='Status da Tarefa' primary='Completa' />
             ) : (
@@ -118,7 +115,6 @@ Id: ${task.id}`}
                 }
                 onClick={() => {
                   toggleComplete(task.id);
-                  // setStatus(task.completed ? 'Concluída' : 'Em Andamento');
                 }}
                 type='button'
               >
@@ -129,7 +125,6 @@ Id: ${task.id}`}
                 title={task.pendente ? 'Marque como pendente' : 'Desmarque'}
                 onClick={() => {
                   togglePendente(task.id);
-                  // setStatus(task.pendente ? 'Pendente' : 'Em Andamento');
                 }}
                 type='button'
               >
