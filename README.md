@@ -15,6 +15,8 @@ Depois digite o comando abaixo.
   * Entre na pasta criada depois do clone com o seguinte comando.
     > cd lista-de-tarefas-frontend
   * Execute o seguinte comando.
-    > npm install.
+    > npm install ou,
+    > yarn install.
 - Terceiro - Rodar o projeto executando o comando abaixo
-  > npm start.
+  > npm start ou,
+  > yarn start.
